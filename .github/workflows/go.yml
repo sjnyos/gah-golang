@@ -35,7 +35,7 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-  ssh-login-push-to-docker-hub:
+  push-to-docker-hub:
     needs: [build-go-app] 
     runs-on: ubuntu-latest    
     steps:
@@ -51,7 +51,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: surajmachamasi/node_application_hello:v4
+          tags: surajmachamasi/node_application_hello:$(date +%s)
 
 
 
