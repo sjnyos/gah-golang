@@ -49,6 +49,24 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: surajmachamasi/go-lang-custom:go-version
+  deploy_nodeapp:
+      needs: [build-go-app]
+      runs-on: ubuntu-latest
+      steps:
+      - name: SSH and deploy go app to the Linux-VM
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          passphrase: ${{secrets.SSH_PASSPHRASE}}
+          script: |
+            sudo rm -r gah-node
+            git clone https://github.com/sjnyos/gah-golang.git
+            cd ~/gah-node
+            docker-compose build
+            docker-compose up -d
 
         
 

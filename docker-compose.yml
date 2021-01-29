@@ -1,0 +1,11 @@
+version: '3'
+services:
+  goapp:
+    image: surajmachamasi/go-lang-custom:go-version
+    volumes:
+      - .:/opt/goapp
+    ports:
+      - 3200:8080
+    restart: always
+
+
