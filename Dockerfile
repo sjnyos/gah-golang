@@ -13,10 +13,10 @@ RUN go get -d -v \
 ##
 
 FROM alpine:3.8
-COPY --from=multistage /go/bin/api /go/bin/
+COPY --from=multistage /go/bin/api .
 EXPOSE 3000
 #RUN chmod +x /go/bin/go-api
-CMD ["/go/bin/go-api"]
+CMD ["./go-api"]
 
 
 
