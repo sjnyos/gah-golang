@@ -3,8 +3,6 @@ name: Go
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   linter:
@@ -76,8 +74,12 @@ jobs:
             sudo rm -r gah-golang
             git clone https://github.com/sjnyos/gah-golang.git
             cd ~/gah-golang
-            docker-compose build
             docker-compose up -d
+
+
+
+
+
             
 
 

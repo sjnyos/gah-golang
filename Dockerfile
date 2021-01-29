@@ -16,3 +16,10 @@ FROM alpine:3.8
 COPY --from=multistage /go/bin/api /go/bin/
 EXPOSE 3000
 CMD ["/go/bin/go-api"]
+
+
+
+
+
+
+
