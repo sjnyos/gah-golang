@@ -48,7 +48,7 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: surajmachamasi/node_application_hello:$(date +%s)
+            tags: surajmachamasi/go-lang-custom:go-version
 
         
 
