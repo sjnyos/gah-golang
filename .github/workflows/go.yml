@@ -7,8 +7,19 @@ on:
     branches: [ master ]
 
 jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Lint Dockerfile
+        uses: brpaz/hadolint-action@master
+        with:
+          dockerfile: "Dockerfile"
 
   build-go-app:
+    needs: [linter]
     runs-on: ${{ matrix.os}}
     strategy:
       matrix:
@@ -62,9 +73,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           passphrase: ${{secrets.SSH_PASSPHRASE}}
           script: |
-            sudo rm -r gah-node
+            sudo rm -r gah-golang
             git clone https://github.com/sjnyos/gah-golang.git
-            cd ~/gah-node
+            cd ~/gah-golang
             docker-compose build
             docker-compose up -d
             
