@@ -60,7 +60,7 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: surajmachamasi/go-lang-custom:go-version
-  deploy_nodeapp:
+  deploy_go_app:
       needs: [build-go-app]
       runs-on: ubuntu-latest
       steps:
