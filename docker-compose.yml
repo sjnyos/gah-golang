@@ -1,6 +1,7 @@
 version: '3'
 services:
-  goapp:
+  goapps:
+    container_name: golang_application
     image: surajmachamasi/go-action-app-now:v5
     volumes:
       - .:/opt/goapp
