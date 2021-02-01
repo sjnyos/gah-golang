@@ -1,6 +1,6 @@
 FROM golang:1.10-alpine3.8 AS builder
 
-RUN apk add --no-cache --update git
+RUN apk add --no-cache --update git=2
 WORKDIR /go/src/api
 COPY . .
 
