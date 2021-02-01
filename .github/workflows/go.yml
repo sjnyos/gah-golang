@@ -15,25 +15,19 @@ jobs:
         uses: brpaz/hadolint-action@master
         with:
           dockerfile: "Dockerfile"
-  golang-lint:
-      needs: [linter]
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: getting go git depds 
-        - run:   go get -v -d
-        - name: Run golangci-lint
-          uses: actions-contrib/golangci-lint@v1
+    
+         
 
   build-go-app:
-    needs: [golang-lint]
+    needs: [linter]
     runs-on: ${{ matrix.os}}
     strategy:
       matrix:
         os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v2
-
+    - name: Run golangci-lint
+      uses: actions-contrib/golangci-lint@v1
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
