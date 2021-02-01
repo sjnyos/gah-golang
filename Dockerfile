@@ -11,7 +11,7 @@ RUN go get -d -v \
 
 FROM alpine:3.8
 COPY --from=builder /go/bin/api /go/bin/
-EXPOSE 3000
+EXPOSE 8080
 CMD ["/go/bin/api"]
 
 
