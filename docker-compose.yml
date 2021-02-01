@@ -2,7 +2,7 @@ version: '3'
 services:
   goapps:
     container_name: golang_application
-    image: surajmachamasi/go-action-app-now:v5
+    image: surajmachamasi/go-action-app-now:v6
     volumes:
       - .:/opt/goapp
     ports:
