@@ -57,7 +57,7 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: surajmachamasi/go-lang-custom:v5
+            tags: surajmachamasi/go-action-app-now:v5
   deploy_go_app:
       needs: [build-go-app]
       runs-on: ubuntu-latest
