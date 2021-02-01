@@ -1,7 +1,7 @@
 version: '3'
 services:
   goapp:
-    image: surajmachamasi/go-lang-custom:v5
+    image: surajmachamasi/go-action-app-now:v5
     volumes:
       - .:/opt/goapp
     ports:
