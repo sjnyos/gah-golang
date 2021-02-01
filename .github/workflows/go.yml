@@ -73,7 +73,7 @@ jobs:
           script: |
             if [ -d "~/gah-golang"]
             then
-            cd  gah-golang
+            cd  ~/gah-golang
             git pull origin master
             else
             git clone https://github.com/sjnyos/gah-golang.git
