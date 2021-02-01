@@ -8,7 +8,7 @@ COPY . .
 
 RUN go get -d -v \
   && go install -v \
-  && RUN CGO_ENABLED=0 GOOS=linux go build -o go-api
+  && CGO_ENABLED=0 GOOS=linux go build -o go-api
 
 ##
 
