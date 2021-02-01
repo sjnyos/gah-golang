@@ -5,7 +5,7 @@ services:
     volumes:
       - .:/opt/goapp
     ports:
-      - 3200:8080
+      - 3200:3000
     restart: always
 
 
