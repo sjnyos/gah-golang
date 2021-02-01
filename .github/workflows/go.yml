@@ -74,7 +74,7 @@ jobs:
             cd  gah-golang
             git pull origin master
             docker-compose up -d 
-            -y
+      
           
 
 
