@@ -71,10 +71,15 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           passphrase: ${{secrets.SSH_PASSPHRASE}}
           script: |
-            sudo rm -r gah-golang
+            if [ -d "~/gah-golang"]
+            then
+            cd  gah-golang
+            git pull origin master
+            else
             git clone https://github.com/sjnyos/gah-golang.git
             cd ~/gah-golang
             docker-compose up -d
+            fi
 
 
 
