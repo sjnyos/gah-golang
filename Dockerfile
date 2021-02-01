@@ -1,22 +1,18 @@
-FROM golang:1.10-alpine3.8 AS multistage
+FROM golang:1.10-alpine3.8 AS builder
 
-# hadolint ignore=DL3018
 RUN apk add --no-cache --update git
-
 WORKDIR /go/src/api
 COPY . .
 
 RUN go get -d -v \
   && go install -v \
-  && CGO_ENABLED=0 GOOS=linux go build -o go-api
+  && go build
 
-##
 
 FROM alpine:3.8
-COPY --from=multistage /go/bin/api .
+COPY --from=builder /go/bin/api /go/bin/
 EXPOSE 3000
-#RUN chmod +x /go/bin/go-api
-CMD ["./go-api"]
+CMD ["/go/bin/api"]
 
 
 
