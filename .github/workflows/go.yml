@@ -90,6 +90,12 @@ jobs:
             cd  gah-golang
             docker-compose down
             docker-compose up -d 
+            
+            
+            
+            
+            
+            
       
           
 
